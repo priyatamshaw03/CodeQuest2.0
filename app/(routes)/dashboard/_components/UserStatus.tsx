@@ -20,7 +20,7 @@ function UserStatus() {
                 <Image src={'/star.png'} alt='star' width={35} height={35}/>
                 <div>
                     <h2 className='text-3xl font-game'>{userDetail?.points || 0}</h2>
-                    <h2 className='font-game text-xl text-gray-400'>Total Points</h2>
+                    <h2 className='font-game text-xl text-gray-400'>Total Rewards</h2>
                 </div>
             </div>
             <div className='flex gap-3 items-center'>
@@ -34,7 +34,7 @@ function UserStatus() {
                 <Image src={'/book.png'} alt='star' width={35} height={35}/>
                 <div>
                     <h2 className='text-3xl font-game'>{userDetail?.totalExercises || 0}</h2>
-                    <h2 className='font-game text-xl text-gray-400'>Total Exercises</h2>
+                    <h2 className='font-game text-xl text-gray-400'>Completed Exercises</h2>
                 </div>
             </div>
             <div className='flex gap-3 items-center'>

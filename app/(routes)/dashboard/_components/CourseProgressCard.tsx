@@ -36,7 +36,7 @@ function CourseProgressCard({ course }: Props) {
             {course?.title}
           </h2>
 
-          <div className="flex justify-between mt-3 text-xs sm:text-sm text-gray-400">
+          <div className="flex justify-between mt-3 text-sm sm:text-md text-gray-400">
             <p>
               XP:{" "}
               <span className="text-yellow-400">

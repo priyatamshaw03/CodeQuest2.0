@@ -22,7 +22,6 @@ import {
 
 import Link from "next/link";
 import { useAuth } from "@clerk/nextjs";
-import { exec } from "child_process";
 
 type Props = {
   loading: boolean;
@@ -164,7 +163,7 @@ function CourseChapters({ loading, courseDetail, isEnrolled }: Props) {
                           </TooltipTrigger>
                           <TooltipContent>
                             <p className="font-game text-sm sm:text-lg">
-                              Enroll to unlock Exercises
+                              {!courseDetail?.userEnrolled ? "Enroll to unlock Exercises" : "Upgrade to Premium"}
                             </p>
                           </TooltipContent>
                         </Tooltip>

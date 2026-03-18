@@ -51,11 +51,11 @@ function CodeEditor({ courseExerciseData, loading }: Props) {
   const { exerciseslug } = useParams();
 
   const exerciseIndex = courseExerciseData?.exercises?.findIndex(
-    (item) => item.slug == exerciseslug,
+    item => item.slug == exerciseslug
   );
 
   const IsCompleted = courseExerciseData?.completedExercises?.find(
-    (item) => item?.exerciseId == Number(exerciseIndex) + 1,
+    item => item?.exerciseId == Number(exerciseIndex) + 1
   );
 
   const onCompleteExercise = async () => {
