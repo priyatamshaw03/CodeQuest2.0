@@ -117,7 +117,7 @@ function Playground() {
     <div className="border-t-4 h-screen">
       <Split
         className="flex h-full"
-        sizes={[40, 60]}   // matches your old 40/60 split
+        sizes={[40, 60]}
         minSize={300}
         gutterSize={8}
         direction="horizontal"

@@ -51,28 +51,28 @@ function CodeEditor({ courseExerciseData, loading }: Props) {
   const { exerciseslug } = useParams();
     const router = useRouter();
 
-  // const exerciseIndex = courseExerciseData?.exercises?.findIndex(
-  //   item => item.slug == exerciseslug
-  // );
-  const currentExercise = courseExerciseData?.exercises?.find(
-  item => item.slug == exerciseslug
-);
-  // const IsCompleted = courseExerciseData?.completedExercises?.find(
-  //   item => item?.exerciseId == Number(exerciseIndex) + 1
-  // );
+  const exerciseIndex = courseExerciseData?.exercises?.findIndex(
+    item => item.slug == exerciseslug
+  );
+//   const currentExercise = courseExerciseData?.exercises?.find(
+//   item => item.slug == exerciseslug
+// );
   const IsCompleted = courseExerciseData?.completedExercises?.find(
-  item => item?.exerciseId == currentExercise?.id
-);
+    item => item?.exerciseId == Number(exerciseIndex) + 1
+  );
+//   const IsCompleted = courseExerciseData?.completedExercises?.find(
+//   item => item?.exerciseId == currentExercise?.id
+// );
 
   const onCompleteExercise = async () => {
-    if (!currentExercise) return;
+    if (!exerciseIndex) return;
 
     await axios.post("/api/exercise/complete", {
       courseId: courseExerciseData?.courseId,
       chapterId: courseExerciseData?.chapterId,
-      exerciseId: String(currentExercise.id),
-      // xpEarned: courseExerciseData?.exercises[exerciseIndex].xp,
-      xpEarned: currentExercise.xp,
+      exerciseId: String(exerciseIndex),
+      xpEarned: courseExerciseData?.exercises[exerciseIndex].xp,
+      // xpEarned: currentExercise.xp,
     });
 
     toast.success("Exercise Completed");

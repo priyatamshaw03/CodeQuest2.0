@@ -13,7 +13,12 @@ const Roadmaps = () => {
     {
       id: 1,
       title: "HTML Roadmap",
-      steps: ["HTML Basics", "Semantic Tags", "Forms & Inputs", "Accessibility"],
+      steps: [
+        "HTML Basics",
+        "Semantic Tags",
+        "Forms & Inputs",
+        "Accessibility",
+      ],
       url: "https://roadmap.sh/pdfs/roadmaps/html.pdf",
     },
     {
@@ -74,7 +79,7 @@ const Roadmaps = () => {
 
   //  Filter by search
   const filteredRoadmaps = roadmaps.filter((r) =>
-    r.title.toLowerCase().includes(search.toLowerCase())
+    r.title.toLowerCase().includes(search.toLowerCase()),
   );
 
   //  Show only 6 initially
@@ -83,29 +88,31 @@ const Roadmaps = () => {
     : filteredRoadmaps.slice(0, 6);
 
   return (
-    <div className="p-6 max-w-7xl mx-auto my-24">
+    <div className="p-6 max-w-7xl mx-auto my-20">
       {/* Heading */}
       <h1 className="text-3xl md:text-6xl text-center font-bold font-game mb-6 text-yellow-500">
         Developer Roadmaps
       </h1>
-      <p className="text-center text-gray-400 font-game text-xl mb-10"> Step-by-step guides to help you master different domains.</p>
+      <p className="text-center text-gray-400 font-game text-xl mb-10">
+        {" "}
+        Step-by-step guides to help you master different domains.
+      </p>
 
-      /* Search Bar */
-<div className="flex justify-center mb-8">
-  <div className="relative w-full max-w-md">
-    {/* Icon */}
-    <SearchIcon className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
+      <div className="flex justify-center mb-8">
+        <div className="relative w-full max-w-md">
+          {/* Icon */}
+          <SearchIcon className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
 
-    {/* Input */}
-    <input
-      type="text"
-      placeholder="Search roadmap (e.g. React, Python...)"
-      value={search}
-      onChange={(e) => setSearch(e.target.value)}
-      className="w-full pl-10 pr-4 py-2 border-2 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
-    />
-  </div>
-</div>
+          {/* Input */}
+          <input
+            type="text"
+            placeholder="Search roadmap (e.g. React, Python...)"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full pl-10 pr-4 py-2 border-2 border-yellow-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          />
+        </div>
+      </div>
 
       {/* Cards */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -119,15 +126,16 @@ const Roadmaps = () => {
               <div className="p-3 bg-yellow-400 text-black rounded-lg">
                 <Map size={22} />
               </div>
-              <h2 className="text-2xl font-game">
-                {roadmaps.title}
-              </h2>
+              <h2 className="text-2xl font-game">{roadmaps.title}</h2>
             </div>
 
             {/* Steps */}
             <ul className="space-y-2 mb-4">
               {roadmaps.steps.map((step, index) => (
-                <li key={index} className="flex items-center text-gray-300 font-game text-xl gap-2">
+                <li
+                  key={index}
+                  className="flex items-center text-gray-300 font-game text-xl gap-2"
+                >
                   <CheckCircle size={16} className="text-yellow-400" />
                   {step}
                 </li>
@@ -139,13 +147,13 @@ const Roadmaps = () => {
 
             {/* Button */}
             <Link href={roadmaps.url}>
-            <Button
-              variant="pixel"
-              className="w-full flex items-center justify-center gap-2 font-game text-lg sm:text-xl px-6 py-4 cursor-pointer"
-            >
-              Download <Download size={18}/>
-            </Button>
-          </Link>
+              <Button
+                variant="pixel"
+                className="w-full flex items-center justify-center gap-2 font-game text-lg sm:text-xl px-6 py-4 cursor-pointer"
+              >
+                Download <Download size={18} />
+              </Button>
+            </Link>
           </div>
         ))}
       </div>

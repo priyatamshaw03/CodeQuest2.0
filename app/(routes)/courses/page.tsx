@@ -17,10 +17,10 @@ function Courses() {
 
         <div className="absolute inset-0 flex items-center bg-gradient-to-r from-black/80 to-black/20">
           <div className="px-6 sm:px-10 md:px-20 lg:px-36">
-            <h2 className="font-game text-2xl sm:text-4xl md:text-6xl">
+            <h2 className="font-game text-3xl sm:text-4xl md:text-6xl">
               Explore All Courses
             </h2>
-            <p className="font-game text-sm sm:text-lg md:text-2xl mt-2 max-w-2xl">
+            <p className="font-game text-md sm:text-lg md:text-2xl mt-2 max-w-2xl">
               Explore all courses and enroll to learn and increase your skills
             </p>
           </div>
