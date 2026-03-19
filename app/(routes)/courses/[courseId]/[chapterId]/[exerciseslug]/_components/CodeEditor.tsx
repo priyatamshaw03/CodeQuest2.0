@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   SandpackProvider,
   SandpackLayout,
@@ -21,7 +21,10 @@ type Props = {
   loading: boolean;
 };
 
-const CodeEditorChildren = ({ onCompleteExercise, IsCompleted }: any) => {
+const CodeEditorChildren = ({
+  onCompleteExercise,
+  localCompleted,
+}: any) => {
   const { sandpack } = useSandpack();
 
   return (
@@ -34,48 +37,62 @@ const CodeEditorChildren = ({ onCompleteExercise, IsCompleted }: any) => {
       >
         Run Code
       </Button>
+
       <Button
         variant={"pixel"}
-        className="bg-[#a3e534] text-xl cursor-pointer"
+        className={`bg-[#a3e534] text-xl cursor-pointer ${
+          localCompleted ? "opacity-50 cursor-not-allowed" : ""
+        }`}
         size={"lg"}
-        onClick={() => onCompleteExercise()}
-        disabled={IsCompleted}
+        onClick={onCompleteExercise}
+        disabled={localCompleted}
       >
-        {IsCompleted ? "Already Completed !" : "Mark as Completed"}
+        {localCompleted ? "Already Completed !" : "Mark as Completed"}
       </Button>
     </div>
   );
 };
 
-function CodeEditor({ courseExerciseData, loading }: Props) {
+function CodeEditor({ courseExerciseData }: Props) {
   const { exerciseslug } = useParams();
-    const router = useRouter();
+  const router = useRouter();
 
   const exerciseIndex = courseExerciseData?.exercises?.findIndex(
-    item => item.slug == exerciseslug
+    (item) => item.slug == exerciseslug
   );
-//   const currentExercise = courseExerciseData?.exercises?.find(
-//   item => item.slug == exerciseslug
-// );
-  const IsCompleted = courseExerciseData?.completedExercises?.find(
-    item => item?.exerciseId == Number(exerciseIndex) + 1
+
+  // ✅ FIX: Proper boolean
+  const IsCompleted = !!courseExerciseData?.completedExercises?.find(
+    (item) => item?.exerciseId === exerciseIndex! + 1
   );
-//   const IsCompleted = courseExerciseData?.completedExercises?.find(
-//   item => item?.exerciseId == currentExercise?.id
-// );
+
+  // ✅ NEW: local state
+  const [localCompleted, setLocalCompleted] = useState(IsCompleted);
+
+  // ✅ sync with backend updates
+  useEffect(() => {
+    setLocalCompleted(IsCompleted);
+  }, [IsCompleted]);
 
   const onCompleteExercise = async () => {
-    if (!exerciseIndex) return;
+    if (
+      exerciseIndex === -1 ||
+      exerciseIndex === undefined ||
+      localCompleted
+    )
+      return;
+
+    // ✅ instant UI update
+    setLocalCompleted(true);
 
     await axios.post("/api/exercise/complete", {
       courseId: courseExerciseData?.courseId,
       chapterId: courseExerciseData?.chapterId,
-      exerciseId: String(exerciseIndex),
+      exerciseId: exerciseIndex + 1,
       xpEarned: courseExerciseData?.exercises[exerciseIndex].xp,
-      // xpEarned: currentExercise.xp,
     });
 
-    toast.success("Exercise Completed");
+    toast.success("Exercise Completed!");
     router.refresh();
   };
 
@@ -101,16 +118,17 @@ function CodeEditor({ courseExerciseData, loading }: Props) {
             minSize={200}
             gutterSize={8}
           >
-            {/* LEFT - Editor */}
+            {/* LEFT */}
             <div className="relative h-full">
               <SandpackCodeEditor showTabs style={{ height: "100%" }} />
+
               <CodeEditorChildren
                 onCompleteExercise={onCompleteExercise}
-                IsCompleted={IsCompleted}
+                localCompleted={localCompleted}
               />
             </div>
 
-            {/* RIGHT - Preview */}
+            {/* RIGHT */}
             <div className="h-full">
               <SandpackPreview
                 showNavigator

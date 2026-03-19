@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Map, CheckCircle, Download, SearchIcon } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const Roadmaps = () => {
   const [showAll, setShowAll] = useState(false);
@@ -13,74 +14,83 @@ const Roadmaps = () => {
     {
       id: 1,
       title: "HTML Roadmap",
-      steps: [
-        "HTML Basics",
-        "Semantic Tags",
-        "Forms & Inputs",
-        "Accessibility",
-      ],
+      tags: ["Frontend", "Beginner"],
+      steps: ["HTML Basics", "Semantic Tags", "Forms & Inputs", "Accessibility"],
       url: "https://roadmap.sh/pdfs/roadmaps/html.pdf",
     },
     {
       id: 2,
       title: "CSS Roadmap",
+      tags: ["Frontend", "Design"],
       steps: ["CSS Basics", "Flexbox", "Grid", "Responsive Design"],
       url: "https://roadmap.sh/pdfs/roadmaps/css.pdf",
     },
     {
       id: 3,
       title: "JavaScript Roadmap",
+      tags: ["Frontend", "Core"],
       steps: ["Variables", "Functions", "DOM", "Async JS"],
       url: "https://roadmap.sh/pdfs/roadmaps/javascript.pdf",
     },
     {
       id: 4,
       title: "React Roadmap",
+      tags: ["Frontend", "Library"],
       steps: ["Components", "Props & State", "Hooks", "Routing"],
       url: "https://roadmap.sh/pdfs/roadmaps/react.pdf",
     },
     {
       id: 5,
       title: "Next.js Roadmap",
+      tags: ["Frontend", "Fullstack"],
       steps: ["Routing", "SSR/SSG", "API Routes", "Deployment"],
       url: "https://roadmap.sh/pdfs/roadmaps/nextjs.pdf",
     },
     {
       id: 6,
       title: "Node.js Roadmap",
+      tags: ["Backend", "API"],
       steps: ["Node Basics", "Modules & NPM", "Express.js", "REST APIs"],
       url: "https://roadmap.sh/pdfs/roadmaps/nodejs.pdf",
     },
     {
       id: 7,
       title: "Python Roadmap",
+      tags: ["Backend", "AI"],
       steps: ["Python Basics", "Control Flow", "OOP", "Libraries"],
       url: "https://roadmap.sh/pdfs/roadmaps/python.pdf",
     },
     {
       id: 8,
       title: "Java Roadmap",
+      tags: ["Backend", "Enterprise"],
       steps: ["Java Basics", "OOP", "Collections", "Spring"],
       url: "https://roadmap.sh/pdfs/roadmaps/java.pdf",
     },
     {
       id: 9,
       title: "C++ Roadmap",
+      tags: ["DSA", "Core"],
       steps: ["Basics", "Pointers", "STL", "OOP"],
       url: "https://roadmap.sh/pdfs/roadmaps/cpp.pdf",
     },
     {
       id: 10,
       title: "SQL Roadmap",
+      tags: ["Database", "Backend"],
       steps: ["CRUD", "Joins", "Indexes", "Normalization"],
       url: "https://roadmap.sh/pdfs/roadmaps/sql.pdf",
     },
   ];
 
-  //  Filter by search
-  const filteredRoadmaps = roadmaps.filter((r) =>
-    r.title.toLowerCase().includes(search.toLowerCase()),
-  );
+  // 🔍 Filter (title + tags)
+  const filteredRoadmaps = roadmaps.filter((r) => {
+    const searchText = search.toLowerCase();
+    return (
+      r.title.toLowerCase().includes(searchText) ||
+      r.tags.some((tag) => tag.toLowerCase().includes(searchText))
+    );
+  });
 
   //  Show only 6 initially
   const displayedRoadmaps = showAll
@@ -88,25 +98,37 @@ const Roadmaps = () => {
     : filteredRoadmaps.slice(0, 6);
 
   return (
-    <div className="p-6 max-w-7xl mx-auto my-20">
-      {/* Heading */}
-      <h1 className="text-3xl md:text-6xl text-center font-bold font-game mb-6 text-yellow-500">
-        Developer Roadmaps
-      </h1>
-      <p className="text-center text-gray-400 font-game text-xl mb-10">
-        {" "}
-        Step-by-step guides to help you master different domains.
-      </p>
+    <div>
+            <div className="relative w-full">
+        <Image
+          src="/course-banner.gif"
+          alt="coursebanner"
+          width={1200}
+          height={300}
+          className="w-full h-[200px] sm:h-[260px] md:h-[300px] object-cover"
+          unoptimized
+        />
 
-      <div className="flex justify-center mb-8">
+        <div className="absolute inset-0 flex items-center bg-gradient-to-r from-black/80 to-black/20">
+          <div className="px-6 sm:px-10 md:px-20 lg:px-36">
+            <h2 className="font-game text-3xl sm:text-4xl md:text-6xl">
+              Developer Roadmaps
+            </h2>
+            <p className="font-game text-md sm:text-lg md:text-2xl mt-2 max-w-2xl">
+              Step-by-step guides to help you master different domains.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex justify-center my-10">
         <div className="relative w-full max-w-md">
-          {/* Icon */}
-          <SearchIcon className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
+          <SearchIcon className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
 
           {/* Input */}
           <input
             type="text"
-            placeholder="Search roadmap (e.g. React, Python...)"
+            placeholder="Search roadmap (e.g. React, Python, frontend...)"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="w-full pl-10 pr-4 py-2 border-2 border-yellow-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
@@ -129,6 +151,18 @@ const Roadmaps = () => {
               <h2 className="text-2xl font-game">{roadmaps.title}</h2>
             </div>
 
+            {/* Tags */}
+            <div className="flex flex-wrap gap-2 mb-4">
+              {roadmaps.tags.map((tag, index) => (
+                <span
+                  key={index}
+                  className="px-3 py-1 text-sm font-game bg-yellow-400/20 text-yellow-300 rounded-full border border-yellow-400/40"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+
             {/* Steps */}
             <ul className="space-y-2 mb-4">
               {roadmaps.steps.map((step, index) => (
@@ -146,7 +180,7 @@ const Roadmaps = () => {
             </ul>
 
             {/* Button */}
-            <Link href={roadmaps.url}>
+            <Link href={roadmaps.url} target="_blank">
               <Button
                 variant="pixel"
                 className="w-full flex items-center justify-center gap-2 font-game text-lg sm:text-xl px-6 py-4 cursor-pointer"
