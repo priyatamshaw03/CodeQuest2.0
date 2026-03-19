@@ -5,168 +5,142 @@ import { CourseChaptersTable } from '@/config/schema';
 export async function GET(req: NextRequest) {
  const DATA =
 [
-{
-"id": 1,
-"name": "Introduction to Java",
-"desc": "Learn what Java is and why it is one of the most popular programming languages.",
-"exercises": [
-{"name": "Install Java Setup", "slug": "install-java-setup", "xp": 20, "difficulty": "easy"},
-{"name": "First Hello World", "slug": "first-hello-world", "xp": 25, "difficulty": "easy"},
-{"name": "Java Compiler Run", "slug": "java-compiler-run", "xp": 20, "difficulty": "easy"},
-{"name": "Print Text", "slug": "print-text", "xp": 15, "difficulty": "easy"},
-{"name": "Multiple Print Lines", "slug": "multiple-print-lines", "xp": 20, "difficulty": "easy"},
-{"name": "Fix Hello World", "slug": "fix-hello-world", "xp": 25, "difficulty": "easy"}
-]
-},
-{
-"id": 2,
-"name": "Java Syntax Basics",
-"desc": "Understand Java syntax, statements, and basic structure.",
-"exercises": [
-{"name": "Java Statement Fix", "slug": "java-statement-fix", "xp": 20, "difficulty": "easy"},
-{"name": "Semicolon Debug", "slug": "semicolon-debug", "xp": 20, "difficulty": "easy"},
-{"name": "Code Block Builder", "slug": "code-block-builder", "xp": 25, "difficulty": "easy"},
-{"name": "Java Comment Writer", "slug": "java-comment-writer", "xp": 15, "difficulty": "easy"},
-{"name": "Syntax Error Finder", "slug": "syntax-error-finder", "xp": 25, "difficulty": "medium"},
-{"name": "Structure Detective", "slug": "structure-detective", "xp": 30, "difficulty": "medium"}
-]
-},
-{
-"id": 3,
-"name": "Variables",
-"desc": "Learn how to store data using variables.",
-"exercises": [
-{"name": "Create Integer Variable", "slug": "create-integer-variable", "xp": 20, "difficulty": "easy"},
-{"name": "String Variable Builder", "slug": "string-variable-builder", "xp": 20, "difficulty": "easy"},
-{"name": "Multiple Variables", "slug": "multiple-variables", "xp": 25, "difficulty": "easy"},
-{"name": "Variable Value Change", "slug": "variable-value-change", "xp": 20, "difficulty": "easy"},
-{"name": "Variable Output", "slug": "variable-output", "xp": 25, "difficulty": "easy"},
-{"name": "Variable Debugger", "slug": "variable-debugger", "xp": 30, "difficulty": "medium"}
-]
-},
-{
-"id": 4,
-"name": "Data Types",
-"desc": "Understand Java data types like int, double, char, and boolean.",
-"exercises": [
-{"name": "Integer Practice", "slug": "integer-practice", "xp": 20, "difficulty": "easy"},
-{"name": "Double Value Builder", "slug": "double-value-builder", "xp": 20, "difficulty": "easy"},
-{"name": "Boolean Checker", "slug": "boolean-checker", "xp": 20, "difficulty": "easy"},
-{"name": "Char Creator", "slug": "char-creator", "xp": 20, "difficulty": "easy"},
-{"name": "Data Type Fixer", "slug": "data-type-fixer", "xp": 25, "difficulty": "medium"},
-{"name": "Type Detective", "slug": "type-detective", "xp": 25, "difficulty": "medium"}
-]
-},
-{
-"id": 5,
-"name": "Operators",
-"desc": "Learn arithmetic, comparison, and logical operators.",
-"exercises": [
-{"name": "Addition Program", "slug": "addition-program", "xp": 20, "difficulty": "easy"},
-{"name": "Comparison Checker", "slug": "comparison-checker", "xp": 25, "difficulty": "easy"},
-{"name": "Logical Operator Test", "slug": "logical-operator-test", "xp": 25, "difficulty": "medium"},
-{"name": "Increment Practice", "slug": "increment-practice", "xp": 20, "difficulty": "easy"},
-{"name": "Operator Puzzle", "slug": "operator-puzzle", "xp": 30, "difficulty": "medium"},
-{"name": "Math Challenge", "slug": "math-challenge", "xp": 30, "difficulty": "medium"}
-]
-},
-{
-"id": 6,
-"name": "Conditional Statements",
-"desc": "Control program flow using if, else, and switch.",
-"exercises": [
-{"name": "If Condition Builder", "slug": "if-condition-builder", "xp": 25, "difficulty": "easy"},
-{"name": "If Else Program", "slug": "if-else-program", "xp": 30, "difficulty": "medium"},
-{"name": "Number Checker", "slug": "number-checker", "xp": 25, "difficulty": "easy"},
-{"name": "Grade Calculator", "slug": "grade-calculator", "xp": 30, "difficulty": "medium"},
-{"name": "Switch Statement", "slug": "switch-statement", "xp": 25, "difficulty": "medium"},
-{"name": "Condition Debugger", "slug": "condition-debugger", "xp": 30, "difficulty": "medium"}
-]
-},
-{
-"id": 7,
-"name": "Loops",
-"desc": "Repeat tasks using for, while, and do-while loops.",
-"exercises": [
-{"name": "For Loop Counter", "slug": "for-loop-counter", "xp": 25, "difficulty": "easy"},
-{"name": "While Loop Printer", "slug": "while-loop-printer", "xp": 25, "difficulty": "easy"},
-{"name": "Number Pattern", "slug": "number-pattern", "xp": 30, "difficulty": "medium"},
-{"name": "Even Number Finder", "slug": "even-number-finder", "xp": 30, "difficulty": "medium"},
-{"name": "Loop Break Fix", "slug": "loop-break-fix", "xp": 25, "difficulty": "medium"},
-{"name": "Loop Challenge", "slug": "loop-challenge", "xp": 35, "difficulty": "medium"}
-]
-},
-{
-"id": 8,
-"name": "Arrays",
-"desc": "Store multiple values in arrays.",
-"exercises": [
-{"name": "Create Array", "slug": "create-array", "xp": 20, "difficulty": "easy"},
-{"name": "Array Access", "slug": "array-access", "xp": 20, "difficulty": "easy"},
-{"name": "Array Loop Print", "slug": "array-loop-print", "xp": 25, "difficulty": "easy"},
-{"name": "Array Sum", "slug": "array-sum", "xp": 30, "difficulty": "medium"},
-{"name": "Max Value Finder", "slug": "max-value-finder", "xp": 30, "difficulty": "medium"},
-{"name": "Array Debugger", "slug": "array-debugger", "xp": 30, "difficulty": "medium"}
-]
-},
-{
-"id": 9,
-"name": "Methods",
-"desc": "Create reusable blocks of code using methods.",
-"exercises": [
-{"name": "Create Method", "slug": "create-method", "xp": 20, "difficulty": "easy"},
-{"name": "Method With Parameter", "slug": "method-with-parameter", "xp": 25, "difficulty": "medium"},
-{"name": "Return Value Method", "slug": "return-value-method", "xp": 30, "difficulty": "medium"},
-{"name": "Calculator Method", "slug": "calculator-method", "xp": 30, "difficulty": "medium"},
-{"name": "Method Caller", "slug": "method-caller", "xp": 25, "difficulty": "easy"},
-{"name": "Method Debugger", "slug": "method-debugger", "xp": 30, "difficulty": "medium"}
-]
-},
-{
-"id": 10,
-"name": "Object Oriented Programming",
-"desc": "Understand classes and objects in Java.",
-"exercises": [
-{"name": "Create Class", "slug": "create-class", "xp": 25, "difficulty": "easy"},
-{"name": "Create Object", "slug": "create-object", "xp": 25, "difficulty": "easy"},
-{"name": "Class Property", "slug": "class-property", "xp": 25, "difficulty": "easy"},
-{"name": "Method Inside Class", "slug": "method-inside-class", "xp": 30, "difficulty": "medium"},
-{"name": "Object Interaction", "slug": "object-interaction", "xp": 30, "difficulty": "medium"},
-{"name": "OOP Debugger", "slug": "oop-debugger", "xp": 30, "difficulty": "medium"}
-]
-},
-{
-"id": 11,
-"name": "Inheritance",
-"desc": "Reuse code using inheritance and extend classes.",
-"exercises": [
-{"name": "Create Parent Class", "slug": "create-parent-class", "xp": 25, "difficulty": "easy"},
-{"name": "Child Class Builder", "slug": "child-class-builder", "xp": 30, "difficulty": "medium"},
-{"name": "Method Override", "slug": "method-override", "xp": 30, "difficulty": "medium"},
-{"name": "Super Keyword", "slug": "super-keyword", "xp": 25, "difficulty": "medium"},
-{"name": "Inheritance Fix", "slug": "inheritance-fix", "xp": 30, "difficulty": "medium"},
-{"name": "Inheritance Challenge", "slug": "inheritance-challenge", "xp": 35, "difficulty": "medium"}
-]
-},
-{
-"id": 12,
-"name": "Exception Handling",
-"desc": "Handle runtime errors using try, catch, and finally.",
-"exercises": [
-{"name": "Try Catch Builder", "slug": "try-catch-builder", "xp": 25, "difficulty": "easy"},
-{"name": "Divide Error Fix", "slug": "divide-error-fix", "xp": 25, "difficulty": "easy"},
-{"name": "Custom Exception", "slug": "custom-exception", "xp": 30, "difficulty": "medium"},
-{"name": "Finally Block", "slug": "finally-block", "xp": 20, "difficulty": "easy"},
-{"name": "Exception Debugger", "slug": "exception-debugger", "xp": 30, "difficulty": "medium"},
-{"name": "Error Handling Challenge", "slug": "error-handling-challenge", "xp": 40, "difficulty": "medium"}
-]
-}
+  {
+    "id": 1,
+    "name": "Introduction to Next.js",
+    "desc": "Learn what Next.js is, its features, and why it is used for modern web development.",
+    "exercises": [
+      {"name": "Setup Next.js App", "slug": "setup-nextjs-app", "xp": 20, "difficulty": "easy"},
+      {"name": "Project Structure Overview", "slug": "project-structure", "xp": 20, "difficulty": "easy"},
+      {"name": "Run Development Server", "slug": "run-dev-server", "xp": 15, "difficulty": "easy"},
+      {"name": "First Page Creation", "slug": "first-page", "xp": 20, "difficulty": "easy"},
+      {"name": "Hot Reload Test", "slug": "hot-reload", "xp": 15, "difficulty": "easy"},
+      {"name": "Fix Setup Errors", "slug": "fix-setup-errors", "xp": 25, "difficulty": "easy"}
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Routing",
+    "desc": "Understand file-based routing and navigation in Next.js.",
+    "exercises": [
+      {"name": "Create Routes", "slug": "create-routes", "xp": 20, "difficulty": "easy"},
+      {"name": "Dynamic Route Setup", "slug": "dynamic-route", "xp": 25, "difficulty": "medium"},
+      {"name": "Nested Routes", "slug": "nested-routes", "xp": 25, "difficulty": "medium"},
+      {"name": "Link Navigation", "slug": "link-navigation", "xp": 20, "difficulty": "easy"},
+      {"name": "Route Params Usage", "slug": "route-params", "xp": 25, "difficulty": "medium"},
+      {"name": "Routing Debugger", "slug": "routing-debugger", "xp": 30, "difficulty": "medium"}
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Components",
+    "desc": "Learn how to create reusable components in Next.js.",
+    "exercises": [
+      {"name": "Create Component", "slug": "create-component", "xp": 20, "difficulty": "easy"},
+      {"name": "Props Passing", "slug": "props-passing", "xp": 25, "difficulty": "easy"},
+      {"name": "Component Reuse", "slug": "component-reuse", "xp": 25, "difficulty": "easy"},
+      {"name": "Nested Components", "slug": "nested-components", "xp": 25, "difficulty": "easy"},
+      {"name": "Component Styling", "slug": "component-styling", "xp": 25, "difficulty": "medium"},
+      {"name": "Component Debugger", "slug": "component-debugger", "xp": 30, "difficulty": "medium"}
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Server vs Client Components",
+    "desc": "Understand the difference between server and client components in Next.js.",
+    "exercises": [
+      {"name": "Server Component Example", "slug": "server-component", "xp": 20, "difficulty": "easy"},
+      {"name": "Client Component Setup", "slug": "client-component", "xp": 20, "difficulty": "easy"},
+      {"name": "Use Client Directive", "slug": "use-client", "xp": 20, "difficulty": "easy"},
+      {"name": "Mix Components", "slug": "mix-components", "xp": 25, "difficulty": "medium"},
+      {"name": "State in Client Component", "slug": "state-client", "xp": 25, "difficulty": "medium"},
+      {"name": "Component Type Fix", "slug": "component-type-fix", "xp": 30, "difficulty": "medium"}
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Data Fetching",
+    "desc": "Fetch and manage data using server-side and client-side methods.",
+    "exercises": [
+      {"name": "Fetch API Data", "slug": "fetch-api-data", "xp": 25, "difficulty": "easy"},
+      {"name": "Server Side Fetch", "slug": "server-fetch", "xp": 25, "difficulty": "medium"},
+      {"name": "Client Side Fetch", "slug": "client-fetch", "xp": 25, "difficulty": "easy"},
+      {"name": "Loading State", "slug": "loading-state", "xp": 20, "difficulty": "easy"},
+      {"name": "Error Handling", "slug": "error-handling", "xp": 25, "difficulty": "medium"},
+      {"name": "Data Fetch Debugger", "slug": "data-fetch-debugger", "xp": 30, "difficulty": "medium"}
+    ]
+  },
+  {
+    "id": 6,
+    "name": "API Routes",
+    "desc": "Build backend APIs inside Next.js using route handlers.",
+    "exercises": [
+      {"name": "Create API Route", "slug": "create-api-route", "xp": 20, "difficulty": "easy"},
+      {"name": "GET Request Handler", "slug": "get-handler", "xp": 20, "difficulty": "easy"},
+      {"name": "POST Request Handler", "slug": "post-handler", "xp": 25, "difficulty": "medium"},
+      {"name": "Send JSON Response", "slug": "json-response", "xp": 20, "difficulty": "easy"},
+      {"name": "API Error Handling", "slug": "api-error", "xp": 25, "difficulty": "medium"},
+      {"name": "API Debugger", "slug": "api-debugger", "xp": 30, "difficulty": "medium"}
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Styling",
+    "desc": "Style your Next.js apps using CSS, Tailwind, and modules.",
+    "exercises": [
+      {"name": "Global CSS Setup", "slug": "global-css", "xp": 20, "difficulty": "easy"},
+      {"name": "CSS Modules", "slug": "css-modules", "xp": 25, "difficulty": "easy"},
+      {"name": "Tailwind Setup", "slug": "tailwind-setup", "xp": 25, "difficulty": "easy"},
+      {"name": "Responsive Design", "slug": "responsive-design", "xp": 25, "difficulty": "medium"},
+      {"name": "Component Styling", "slug": "component-style", "xp": 25, "difficulty": "easy"},
+      {"name": "Styling Debugger", "slug": "styling-debugger", "xp": 30, "difficulty": "medium"}
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Image & Optimization",
+    "desc": "Optimize performance using built-in Next.js features.",
+    "exercises": [
+      {"name": "Next Image Usage", "slug": "next-image", "xp": 20, "difficulty": "easy"},
+      {"name": "Image Optimization", "slug": "image-optimization", "xp": 25, "difficulty": "easy"},
+      {"name": "Lazy Loading", "slug": "lazy-loading", "xp": 25, "difficulty": "medium"},
+      {"name": "Font Optimization", "slug": "font-optimization", "xp": 20, "difficulty": "easy"},
+      {"name": "Performance Fix", "slug": "performance-fix", "xp": 30, "difficulty": "medium"},
+      {"name": "Optimization Debugger", "slug": "optimization-debugger", "xp": 30, "difficulty": "medium"}
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Authentication",
+    "desc": "Implement authentication in Next.js applications.",
+    "exercises": [
+      {"name": "Auth Setup", "slug": "auth-setup", "xp": 25, "difficulty": "easy"},
+      {"name": "Login Page", "slug": "login-page", "xp": 25, "difficulty": "easy"},
+      {"name": "Protected Route", "slug": "protected-route", "xp": 30, "difficulty": "medium"},
+      {"name": "Session Handling", "slug": "session-handling", "xp": 30, "difficulty": "medium"},
+      {"name": "Logout Feature", "slug": "logout-feature", "xp": 20, "difficulty": "easy"},
+      {"name": "Auth Debugger", "slug": "auth-debugger", "xp": 35, "difficulty": "medium"}
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Deployment",
+    "desc": "Deploy your Next.js application to production.",
+    "exercises": [
+      {"name": "Build Project", "slug": "build-project", "xp": 20, "difficulty": "easy"},
+      {"name": "Environment Variables", "slug": "env-variables", "xp": 25, "difficulty": "medium"},
+      {"name": "Deploy to Vercel", "slug": "deploy-vercel", "xp": 25, "difficulty": "easy"},
+      {"name": "Fix Deployment Errors", "slug": "fix-deploy-errors", "xp": 30, "difficulty": "medium"},
+      {"name": "Production Debugging", "slug": "prod-debugging", "xp": 30, "difficulty": "medium"},
+      {"name": "Deployment Challenge", "slug": "deployment-challenge", "xp": 40, "difficulty": "medium"}
+    ]
+  }
 ]
 
 
 const promises = DATA.map(item =>
   db.insert(CourseChaptersTable).values({
-    courseId: 7,
+    courseId: 4,
     desc: item?.desc,
     exercises: JSON.stringify(item.exercises),
     name: item.name,

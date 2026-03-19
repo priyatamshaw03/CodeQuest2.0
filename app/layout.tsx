@@ -40,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider signInForceRedirectUrl={'/dashboard'} afterSignOutUrl={'/'} signUpForceRedirectUrl={'/dashboard'}>
+    <ClerkProvider>
     <html lang="en" suppressHydrationWarning className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${gameFont.variable} ${inter.variable} antialiased`}

@@ -12,7 +12,7 @@ import Split from "react-split";
 import { CourseExercise } from "../page";
 import { Button } from "@/components/ui/button";
 import { nightOwl } from "@codesandbox/sandpack-themes";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import axios from "axios";
 import { toast } from "sonner";
 
@@ -49,26 +49,34 @@ const CodeEditorChildren = ({ onCompleteExercise, IsCompleted }: any) => {
 
 function CodeEditor({ courseExerciseData, loading }: Props) {
   const { exerciseslug } = useParams();
+    const router = useRouter();
 
-  const exerciseIndex = courseExerciseData?.exercises?.findIndex(
-    item => item.slug == exerciseslug
-  );
-
+  // const exerciseIndex = courseExerciseData?.exercises?.findIndex(
+  //   item => item.slug == exerciseslug
+  // );
+  const currentExercise = courseExerciseData?.exercises?.find(
+  item => item.slug == exerciseslug
+);
+  // const IsCompleted = courseExerciseData?.completedExercises?.find(
+  //   item => item?.exerciseId == Number(exerciseIndex) + 1
+  // );
   const IsCompleted = courseExerciseData?.completedExercises?.find(
-    item => item?.exerciseId == Number(exerciseIndex) + 1
-  );
+  item => item?.exerciseId == currentExercise?.id
+);
 
   const onCompleteExercise = async () => {
-    if (exerciseIndex == undefined) return;
+    if (!currentExercise) return;
 
     await axios.post("/api/exercise/complete", {
       courseId: courseExerciseData?.courseId,
       chapterId: courseExerciseData?.chapterId,
-      exerciseId: exerciseIndex + 1,
-      xpEarned: courseExerciseData?.exercises[exerciseIndex].xp,
+      exerciseId: String(currentExercise.id),
+      // xpEarned: courseExerciseData?.exercises[exerciseIndex].xp,
+      xpEarned: currentExercise.xp,
     });
 
     toast.success("Exercise Completed");
+    router.refresh();
   };
 
   return (

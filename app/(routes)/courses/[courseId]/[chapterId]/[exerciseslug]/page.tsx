@@ -159,7 +159,7 @@ function Playground() {
           <Image src="/star.png" alt="star" width={40} height={40} />
           <h2 className="text-2xl">
             You can Earn{" "}
-            <span className="text-4xl">{exerciseInfo?.xp}</span> XP
+            <span className="text-4xl">{exerciseInfo?.xp ?? courseExerciseData?.exerciseData?.xp ?? 0}</span> XP
           </h2>
         </div>
 

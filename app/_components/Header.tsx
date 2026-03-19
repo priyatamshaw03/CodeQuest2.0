@@ -78,7 +78,7 @@ function Header() {
 
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild className="text-xl">
-                    <Link href="/projects">Projects</Link>
+                    <Link href="/roadmaps">Roadmaps</Link>
                   </NavigationMenuLink>
                 </NavigationMenuItem>
 

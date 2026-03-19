@@ -5,108 +5,109 @@ import { NextRequest, NextResponse } from "next/server";
 const DATA =
 [
   {
-    "courseId": 7,
-    "exerciseId": "install-java-setup",
-    "exerciseName": "Install Java Setup",
+    "courseId": 4,
+    "exerciseId": "setup-nextjs-app",
+    "exerciseName": "Setup Next.js App",
     "chapterId": 1,
     "exercisesContent": {
-      "content": "<body style=\"font-family:Arial;line-height:1.6;\">\n<p>Welcome to your Java adventure! Every great programmer begins by preparing their tools.</p>\n<p>Java is one of the most popular programming languages used for building applications, games, and enterprise systems.</p>\n<p>Before writing Java programs, developers must install the Java Development Kit (JDK).</p>\n<p>The JDK contains the tools needed to compile and run Java programs.</p>\n<p>One important tool inside the JDK is the Java compiler.</p>\n<p>The compiler converts Java source code into bytecode that computers understand.</p>\n<p>Another tool is the Java Runtime Environment which executes compiled programs.</p>\n<p>After installing Java, developers can write programs in files that end with <code>.java</code>.</p>\n<p>These files contain classes and methods that define program behavior.</p>\n<p>Java programs usually start with a class definition.</p>\n<p>The program execution begins from the <code>main</code> method.</p>\n<p>Understanding this structure helps you write your first Java program.</p>\n<p>Your first mission is to prepare the basic Java program structure.</p>\n</body>",
-      "task": "<body style=\"font-family:Arial;line-height:1.6;\">\n<p>Create a Java class named <code>Main</code>.</p>\n<p>Inside the class, add the main method structure.</p>\n<p>The main method should follow the format <code>public static void main(String[] args)</code>.</p>\n</body>",
-      "hint": "<body style=\"font-family:Arial;line-height:1.6;\">\n<p>A Java program always starts with a class.</p>\n<p>The main method is written like this:</p>\n<p><code>public static void main(String[] args) { }</code></p>\n</body>",
+      "content": "<body style=\"font-family:sans-serif;line-height:1.6;\">Welcome to your first mission 🚀 in the Next.js journey! In this exercise, you will learn how to set up a Next.js application from scratch. Think of this like preparing your game environment before starting a level. First, you need Node.js installed on your system because it powers your project. Then, you use the command <code>npx create-next-app@latest</code> to generate a ready-to-use Next.js project. This command sets up everything including dependencies, folder structure, and configuration. After installation, navigate into your project folder using <code>cd your-app-name</code>. This is like entering your game world. Next.js comes pre-configured with modern tools like React, routing, and optimization features. You don’t need to manually install many packages. This saves time and effort. Once inside the folder, your environment is ready to run. The setup phase ensures everything is working smoothly before development. Understanding this step is important because it helps you debug issues later. Now you're ready to build something amazing!</body>",
+      "task": "<body style=\"font-family:sans-serif;line-height:1.6;\">Your task is to set up a new Next.js application. Open your terminal and run <code>npx create-next-app@latest my-app</code>. After installation, navigate into the folder using <code>cd my-app</code>. Confirm that the project folder is created successfully and contains files like <code>package.json</code> and <code>app</code> or <code>pages</code>.</body>",
+      "hint": "<body style=\"font-family:sans-serif;line-height:1.6;\">Make sure Node.js is installed before running the command. Use <code>node -v</code> to check. If the command fails, try reinstalling Node or using <code>npx</code> properly.</body>",
       "starterCode": {
-        "/Main.java": "public class Main {\n\n\n\n}"
+        "/README.md": "# Next.js Setup\n\nRun the following commands:\n\nnpx create-next-app@latest my-app\ncd my-app\nnpm run dev\n"
       },
-      "regex": "public\\s+static\\s+void\\s+main",
-      "output": "Java program structure created",
+      "regex": "create-next-app",
+      "output": "Next.js app created successfully",
       "hintXp": 30
     }
   },
   {
-    "courseId": 7,
-    "exerciseId": "first-hello-world",
-    "exerciseName": "First Hello World",
+    "courseId": 4,
+    "exerciseId": "project-structure",
+    "exerciseName": "Project Structure Overview",
     "chapterId": 1,
     "exercisesContent": {
-      "content": "<body style=\"font-family:Arial;line-height:1.6;\">\n<p>Congratulations! Your Java environment is ready.</p>\n<p>Now it's time to write the classic first program every programmer creates.</p>\n<p>This program prints a simple message on the screen.</p>\n<p>In Java, text is displayed using the <code>System.out.println()</code> command.</p>\n<p>This command prints a line of text in the console.</p>\n<p>Developers often start with a Hello World program.</p>\n<p>This confirms the compiler and runtime are working correctly.</p>\n<p>The message is placed inside quotation marks.</p>\n<p>Java then displays the text exactly as written.</p>\n<p>This small program is the first milestone in learning Java.</p>\n<p>Once you understand this, you can create more complex programs.</p>\n<p>Your mission is to write the first Hello World program.</p>\n</body>",
-      "task": "<body style=\"font-family:Arial;line-height:1.6;\">\n<p>Add Java code that prints <code>Hello World</code>.</p>\n<p>Use the command <code>System.out.println()</code> inside the main method.</p>\n</body>",
-      "hint": "<body style=\"font-family:Arial;line-height:1.6;\">\n<p>The print command looks like this:</p>\n<p><code>System.out.println(\"Hello World\");</code></p>\n</body>",
+      "content": "<body style=\"font-family:sans-serif;line-height:1.6;\">Now that your Next.js app is ready, it's time to explore its structure 🧭. Think of this like learning the map of a game world. The root folder contains important files like <code>package.json</code>, which manages dependencies. The <code>app</code> or <code>pages</code> folder is where your routes live. Each file represents a page. The <code>public</code> folder stores static assets like images. You will also see configuration files like <code>next.config.js</code>. These help customize your app behavior. The <code>node_modules</code> folder contains installed packages. Avoid editing it manually. Understanding structure helps you navigate quickly and build efficiently. It also prevents confusion when your project grows bigger. Every folder has a purpose, just like different zones in a game. Mastering this will make development much smoother. Take your time exploring!</body>",
+      "task": "<body style=\"font-family:sans-serif;line-height:1.6;\">Open your Next.js project and identify the following folders: <code>app/pages</code>, <code>public</code>, and <code>node_modules</code>. Write down what each folder is used for.</body>",
+      "hint": "<body style=\"font-family:sans-serif;line-height:1.6;\">Look inside each folder and observe the files. Focus especially on <code>app</code> or <code>pages</code> as they control routing.</body>",
       "starterCode": {
-        "/Main.java": "public class Main {\n\n    public static void main(String[] args) {\n\n        \n\n    }\n\n}"
+        "/notes.txt": "app/ or pages/ -> \npublic/ -> \nnode_modules/ -> "
       },
-      "regex": "System\\.out\\.println\\(\"Hello World\"\\)",
-      "output": "Hello World",
+      "regex": "app|pages",
+      "output": "Project structure understood",
       "hintXp": 35
     }
   },
   {
-    "courseId": 7,
-    "exerciseId": "java-compiler-run",
-    "exerciseName": "Java Compiler Run",
+    "courseId": 4,
+    "exerciseId": "run-dev-server",
+    "exerciseName": "Run Development Server",
     "chapterId": 1,
     "exercisesContent": {
-      "content": "<body style=\"font-family:Arial;line-height:1.6;\">\n<p>Now you will learn how Java programs are executed.</p>\n<p>Java code does not run directly like some scripting languages.</p>\n<p>Instead, it must first be compiled.</p>\n<p>The Java compiler translates source code into bytecode.</p>\n<p>This bytecode runs on the Java Virtual Machine.</p>\n<p>The compiler command is usually <code>javac</code>.</p>\n<p>For example: <code>javac Main.java</code>.</p>\n<p>This creates a compiled file called <code>Main.class</code>.</p>\n<p>After compilation, you run the program using the <code>java</code> command.</p>\n<p>The JVM executes the compiled bytecode.</p>\n<p>This system allows Java programs to run on many platforms.</p>\n<p>Your mission is to print a message to confirm the program runs.</p>\n</body>",
-      "task": "<body style=\"font-family:Arial;line-height:1.6;\">\n<p>Add code that prints <code>Java Program Running</code>.</p>\n<p>Use the print command inside the main method.</p>\n</body>",
-      "hint": "<body style=\"font-family:Arial;line-height:1.6;\">\n<p>Use the same print method used earlier.</p>\n<p><code>System.out.println(\"Java Program Running\");</code></p>\n</body>",
+      "content": "<body style=\"font-family:sans-serif;line-height:1.6;\">Great progress! Now it's time to bring your app to life ⚡. Running the development server allows you to see your app in the browser. Use the command <code>npm run dev</code> inside your project folder. This starts a local server, usually at <code>http://localhost:3000</code>. When you open this in your browser, you will see your Next.js app running. This is like pressing the 'Play' button in a game. The development server also supports hot reloading, meaning changes appear instantly. If there are errors, they will show in the terminal or browser. This helps in debugging quickly. Always ensure your server is running while developing. Without it, you cannot preview your work. This step is essential in every development workflow. Now you're officially running your app!</body>",
+      "task": "<body style=\"font-family:sans-serif;line-height:1.6;\">Run the command <code>npm run dev</code> in your project directory and open <code>http://localhost:3000</code> in your browser. Confirm that the app loads successfully.</body>",
+      "hint": "<body style=\"font-family:sans-serif;line-height:1.6;\">Make sure you are inside the correct folder before running the command. Use <code>cd my-app</code>.</body>",
       "starterCode": {
-        "/Main.java": "public class Main {\n\n    public static void main(String[] args) {\n\n        \n\n    }\n\n}"
+        "/terminal.txt": "npm run dev"
       },
-      "regex": "System\\.out\\.println\\(\"Java Program Running\"\\)",
-      "output": "Java Program Running",
+      "regex": "localhost:3000",
+      "output": "App running on localhost",
       "hintXp": 30
     }
   },
   {
-    "courseId": 7,
-    "exerciseId": "print-text",
-    "exerciseName": "Print Text",
+    "courseId": 4,
+    "exerciseId": "first-page",
+    "exerciseName": "First Page Creation",
     "chapterId": 1,
     "exercisesContent": {
-      "content": "<body style=\"font-family:Arial;line-height:1.6;\">\n<p>Now that you know how Java programs run, let's practice printing text.</p>\n<p>Displaying information is one of the most common tasks in programming.</p>\n<p>Java uses the <code>System.out.println()</code> method for printing lines.</p>\n<p>The text you want to display is written inside quotation marks.</p>\n<p>Each time the method runs, the message appears in the console.</p>\n<p>The word <code>println</code> means print line.</p>\n<p>This means the cursor moves to the next line after printing.</p>\n<p>Developers use this to show program output clearly.</p>\n<p>You can print messages, numbers, or results.</p>\n<p>This command is one of the most used tools in Java.</p>\n<p>Your mission is to display a new message.</p>\n<p>Complete the program to show the correct text.</p>\n</body>",
-      "task": "<body style=\"font-family:Arial;line-height:1.6;\">\n<p>Add a print command that displays <code>I am learning Java</code>.</p>\n<p>Use the <code>System.out.println()</code> method.</p>\n</body>",
-      "hint": "<body style=\"font-family:Arial;line-height:1.6;\">\n<p>Example format:</p>\n<p><code>System.out.println(\"Text here\");</code></p>\n</body>",
+      "content": "<body style=\"font-family:sans-serif;line-height:1.6;\">Awesome! Now it's time to create your very first page 🎯. In Next.js, pages are created using files inside the <code>app</code> or <code>pages</code> directory. Each file automatically becomes a route. For example, creating a file named <code>page.js</code> inside the <code>app</code> folder will render the homepage. Think of this like unlocking your first level in a game. You don’t need to configure routing manually because Next.js does it for you. Inside the file, you write a React component that returns JSX. JSX looks like HTML but works inside JavaScript. For example, you can return <code>&lt;h1&gt;Hello World&lt;/h1&gt;</code>. This will display on your page. This is your first visible output! You can customize it with more elements later. Understanding this step is important because every feature you build will live inside pages. Keep it simple and focus on learning the basics. You're now building real UI!</body>",
+      "task": "<body style=\"font-family:sans-serif;line-height:1.6;\">Create a file named <code>page.js</code> inside the <code>app</code> folder. Inside it, return a heading that says <code>Hello Next.js</code>. Run your app and confirm it appears in the browser.</body>",
+      "hint": "<body style=\"font-family:sans-serif;line-height:1.6;\">Make sure you export a default function and return JSX. Example: <code>export default function Home() { return &lt;h1&gt;Hello Next.js&lt;/h1&gt;; }</code></body>",
       "starterCode": {
-        "/Main.java": "public class Main {\n\n    public static void main(String[] args) {\n\n        \n\n    }\n\n}"
+        "/app/page.js": "export default function Home() {\n  return (\n    <div>\n      <h1></h1>\n    </div>\n  );\n}"
       },
-      "regex": "System\\.out\\.println\\(\"I am learning Java\"\\)",
-      "output": "I am learning Java",
-      "hintXp": 30
+      "regex": "Hello Next.js",
+      "output": "Hello Next.js",
+      "hintXp": 40
     }
   },
   {
-    "courseId": 7,
-    "exerciseId": "multiple-print-lines",
-    "exerciseName": "Multiple Print Lines",
+    "courseId": 4,
+    "exerciseId": "hot-reload",
+    "exerciseName": "Hot Reload Test",
     "chapterId": 1,
     "exercisesContent": {
-      "content": "<body style=\"font-family:Arial;line-height:1.6;\">\n<p>Level up! Now you will print multiple lines in Java.</p>\n<p>Programs often display several messages.</p>\n<p>Each message can be printed using a new print command.</p>\n<p>Because we use <code>println</code>, each message appears on a new line.</p>\n<p>This helps keep program output organized.</p>\n<p>Developers frequently print instructions or results.</p>\n<p>You can call the print method many times in a program.</p>\n<p>Each call prints one line.</p>\n<p>This technique is useful for creating structured output.</p>\n<p>Understanding this helps build larger programs.</p>\n<p>Your mission is to print two different lines.</p>\n<p>Use two separate print commands.</p>\n</body>",
-      "task": "<body style=\"font-family:Arial;line-height:1.6;\">\n<p>Add two print commands.</p>\n<p>The first should print <code>Java is powerful</code>.</p>\n<p>The second should print <code>Java is everywhere</code>.</p>\n</body>",
-      "hint": "<body style=\"font-family:Arial;line-height:1.6;\">\n<p>Example:</p>\n<p><code>System.out.println(\"First line\");</code></p>\n<p><code>System.out.println(\"Second line\");</code></p>\n</body>",
+      "content": "<body style=\"font-family:sans-serif;line-height:1.6;\">Now let’s test one of the coolest features of Next.js 🔥 — hot reloading! This means whenever you make changes to your code, the browser updates automatically without refreshing. It feels like magic but it's actually built into the development server. Think of it like real-time feedback in a game. When you edit your page file, the UI updates instantly. This saves a lot of time and makes development faster. For example, if you change text inside your <code>&lt;h1&gt;</code>, the browser reflects it immediately. No need to restart the server. This helps you experiment and learn quickly. Hot reload also preserves your state in many cases. It’s an essential feature for modern development. Make sure your dev server is running while testing this. Try changing multiple things and observe the results. You’ll love how smooth it feels!</body>",
+      "task": "<body style=\"font-family:sans-serif;line-height:1.6;\">Open your <code>page.js</code> file and change the heading text from <code>Hello Next.js</code> to <code>Hot Reload Working</code>. Save the file and observe the browser update automatically.</body>",
+      "hint": "<body style=\"font-family:sans-serif;line-height:1.6;\">Make sure your development server is still running using <code>npm run dev</code>. Save the file after editing.</body>",
       "starterCode": {
-        "/Main.java": "public class Main {\n\n    public static void main(String[] args) {\n\n        \n\n\n    }\n\n}"
+        "/app/page.js": "export default function Home() {\n  return (\n    <div>\n      <h1>Hello Next.js</h1>\n    </div>\n  );\n}"
       },
-      "regex": "Java is powerful[\\s\\S]*Java is everywhere",
-      "output": "Java is powerful\nJava is everywhere",
+      "regex": "Hot Reload Working",
+      "output": "Hot Reload Working",
       "hintXp": 35
     }
   },
   {
-    "courseId": 7,
-    "exerciseId": "fix-hello-world",
-    "exerciseName": "Fix Hello World",
+    "courseId": 4,
+    "exerciseId": "fix-setup-errors",
+    "exerciseName": "Fix Setup Errors",
     "chapterId": 1,
     "exercisesContent": {
-      "content": "<body style=\"font-family:Arial;line-height:1.6;\">\n<p>Final mission unlocked! It's time to become a Java code detective.</p>\n<p>Even experienced programmers make mistakes.</p>\n<p>Sometimes a semicolon is missing.</p>\n<p>Other times the syntax of a statement is incorrect.</p>\n<p>Java requires precise syntax to compile programs.</p>\n<p>If something is wrong, the compiler shows an error.</p>\n<p>Developers must carefully inspect the code.</p>\n<p>Fixing these errors is called debugging.</p>\n<p>Debugging helps programs run correctly.</p>\n<p>Every developer improves by practicing debugging.</p>\n<p>Your mission is to repair the broken Hello World program.</p>\n<p>Fix the error so the correct message appears.</p>\n</body>",
-      "task": "<body style=\"font-family:Arial;line-height:1.6;\">\n<p>The Java program contains a syntax mistake.</p>\n<p>Fix the code so it correctly prints <code>Hello World</code>.</p>\n</body>",
-      "hint": "<body style=\"font-family:Arial;line-height:1.6;\">\n<p>The correct command should look like:</p>\n<p><code>System.out.println(\"Hello World\");</code></p>\n</body>",
+      "content": "<body style=\"font-family:sans-serif;line-height:1.6;\">Every developer faces errors ⚠️ — and learning to fix them is a superpower! In this step, you’ll understand common setup issues in Next.js. Sometimes the server doesn’t start due to missing dependencies. You might see errors if Node.js version is outdated. Another common issue is running commands in the wrong folder. Syntax errors in your code can also break the app. The terminal and browser will show error messages to help you. Think of these like clues in a puzzle game. Carefully read the error and fix it step by step. For example, if a tag is not closed properly, fix the JSX. If a package is missing, reinstall using <code>npm install</code>. Debugging improves your problem-solving skills. Don’t fear errors — embrace them! The more you fix, the better you become. This is how real developers grow every day.</body>",
+      "task": "<body style=\"font-family:sans-serif;line-height:1.6;\">Fix the error in the given code where the <code>&lt;h1&gt;</code> tag is not properly closed. Update it so the app runs without errors and displays correct text.</body>",
+      "hint": "<body style=\"font-family:sans-serif;line-height:1.6;\">JSX requires all tags to be properly closed. For example: <code>&lt;h1&gt;Text&lt;/h1&gt;</code></body>",
       "starterCode": {
-        "/Main.java": "public class Main {\n\n    public static void main(String[] args) {\n\n        System.out.println(\"Hello World\")\n\n    }\n\n}"
+        "/app/page.js": "export default function Home() {\n  return (\n    <div>\n      <h1>Fix Me\n    </div>\n  );\n}"
       },
-      "regex": "System\\.out\\.println\\(\"Hello World\"\\);",
-      "output": "Hello World",
-      "hintXp": 35
+      "regex": "<h1>.*</h1>",
+      "output": "Fix Me",
+      "hintXp": 50
     }
   }
 ]
+
 
 export async function GET(req: NextRequest) {
     for (const item of DATA) {
