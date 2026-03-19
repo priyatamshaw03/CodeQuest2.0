@@ -27,10 +27,10 @@ const Roadmaps = () => {
     },
     {
       id: 3,
-      title: "JavaScript Roadmap",
-      tags: ["Frontend", "Core"],
-      steps: ["Variables", "Functions", "DOM", "Async JS"],
-      url: "https://roadmap.sh/pdfs/roadmaps/javascript.pdf",
+      title: "Python Roadmap",
+      tags: ["Backend", "AI"],
+      steps: ["Python Basics", "Control Flow", "OOP", "Libraries"],
+      url: "https://roadmap.sh/pdfs/roadmaps/python.pdf",
     },
     {
       id: 4,
@@ -41,10 +41,10 @@ const Roadmaps = () => {
     },
     {
       id: 5,
-      title: "Next.js Roadmap",
-      tags: ["Frontend", "Fullstack"],
-      steps: ["Routing", "SSR/SSG", "API Routes", "Deployment"],
-      url: "https://roadmap.sh/pdfs/roadmaps/nextjs.pdf",
+      title: "Java Roadmap",
+      tags: ["Backend", "Enterprise"],
+      steps: ["Java Basics", "OOP", "Collections", "Spring"],
+      url: "https://roadmap.sh/pdfs/roadmaps/java.pdf",
     },
     {
       id: 6,
@@ -55,17 +55,17 @@ const Roadmaps = () => {
     },
     {
       id: 7,
-      title: "Python Roadmap",
-      tags: ["Backend", "AI"],
-      steps: ["Python Basics", "Control Flow", "OOP", "Libraries"],
-      url: "https://roadmap.sh/pdfs/roadmaps/python.pdf",
+      title: "Next.js Roadmap",
+      tags: ["Frontend", "Fullstack"],
+      steps: ["Routing", "SSR/SSG", "API Routes", "Deployment"],
+      url: "https://roadmap.sh/pdfs/roadmaps/nextjs.pdf",
     },
     {
       id: 8,
-      title: "Java Roadmap",
-      tags: ["Backend", "Enterprise"],
-      steps: ["Java Basics", "OOP", "Collections", "Spring"],
-      url: "https://roadmap.sh/pdfs/roadmaps/java.pdf",
+      title: "JavaScript Roadmap",
+      tags: ["Frontend", "Core"],
+      steps: ["Variables", "Functions", "DOM", "Async JS"],
+      url: "https://roadmap.sh/pdfs/roadmaps/javascript.pdf",
     },
     {
       id: 9,
@@ -158,7 +158,7 @@ const Roadmaps = () => {
                   {roadmaps.tags.map((tag, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 text-xs sm:text-sm font-game bg-yellow-400/20 text-yellow-300 rounded-full border border-yellow-400/40"
+                      className="px-3 py-1 text-xs sm:text-sm font-game bg-yellow-400/20 text-black rounded-full border border-yellow-400/40"
                     >
                       {tag}
                     </span>
