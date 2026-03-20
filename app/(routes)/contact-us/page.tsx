@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Phone, MapPin, Clock } from "lucide-react";
+import { toast } from "sonner";
 
 export default function ContactUsPage() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -14,13 +15,14 @@ export default function ContactUsPage() {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    toast.success("Message sent successfully!");
     setForm({ name: "", email: "", message: "" });
   };
 
   return (
     <div className="min-h-screen bg-black text-white font-game">
       
-      {/* 🔥 TOP BANNER */}
+      {/* TOP BANNER */}
       <div className="relative w-full h-[200px] sm:h-[260px] md:h-[300px] overflow-hidden">
         <Image
           src="/contact-us.webp"
@@ -40,8 +42,8 @@ export default function ContactUsPage() {
         </div>
       </div>
 
-      {/* 🔥 MAIN SECTION */}
-      <div className="max-w-6xl mx-auto mt-10 px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* MAIN SECTION */}
+      <div className="max-w-5xl mx-auto mt-10 px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-6">
         
         {/* LEFT: CONTACT INFO */}
         <div className="border border-4 rounded-2xl p-6 sm:p-8 flex flex-col gap-8">

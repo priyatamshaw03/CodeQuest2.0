@@ -60,7 +60,6 @@ export default function SignInPage() {
                 type="email"
                 required
                 className="w-full px-3 py-2.5 border-2 border-black rounded-md
-                shadow-[2px_2px_0_0_#000]
                 focus:outline-none focus:ring-2 focus:ring-yellow-400
                 transition-all text-sm"
               />
@@ -75,7 +74,6 @@ export default function SignInPage() {
                 type="password"
                 required
                 className="w-full px-3 py-2.5 border-2 border-black rounded-md
-                shadow-[2px_2px_0_0_#000]
                 focus:outline-none focus:ring-2 focus:ring-yellow-400
                 transition-all text-sm"
               />

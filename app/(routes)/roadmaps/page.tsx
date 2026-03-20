@@ -55,10 +55,15 @@ const Roadmaps = () => {
     },
     {
       id: 7,
-      title: "Angular Roadmap",
-      tags: ["Frontend", "Framework"],
-      steps: ["TypeScript Basics", "Angular CLI & Project Setup", "Components & Templates", "Data Binding & Directives", "Routing & Navigation"],
-      url: "https://roadmap.sh/pdfs/roadmaps/angular.pdf",
+      title: "PHP Roadmap",
+      tags: ["Backend", "Database"],
+      steps: [
+        "PHP Basics & Syntax",
+        "Control Structures & Functions",
+        "Working with Forms & Sessions",
+        "Database Integration (MySQL with PHP)"
+      ],
+      url: "https://roadmap.sh/pdfs/roadmaps/php.pdf",
     },
     {
       id: 8,
@@ -147,7 +152,7 @@ const Roadmaps = () => {
           {displayedRoadmaps.map((roadmaps) => (
             <div
               key={roadmaps.id}
-              className="p-6 border-l-4 border-yellow-500 rounded-2xl shadow-md hover:shadow-xl transition bg-black"
+              className="p-6 border-3 rounded-2xl bg-zinc-900 hover:scale-105 transition"
             >
               {/* Title + Tags SAME ROW */}
               <div className="flex justify-between items-start gap-4 mb-4 flex-wrap">
@@ -165,7 +170,7 @@ const Roadmaps = () => {
                   {roadmaps.tags.map((tag, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 text-xs sm:text-sm font-game bg-yellow-400/20 rounded-full border border-yellow-400/40"
+                      className="px-3 py-1 text-xs sm:text-sm font-game text-yellow-500 bg-yellow-400/10 rounded-full border border-yellow-400/40"
                     >
                       {tag}
                     </span>
@@ -191,7 +196,7 @@ const Roadmaps = () => {
               <Link href={roadmaps.url} target="_blank">
                 <Button
                   variant="pixel"
-                  className="w-full flex items-center justify-center gap-2 font-game text-lg px-6 py-4"
+                  className="w-full flex items-center justify-center gap-2 font-game cursor-pointer text-lg px-6 py-4"
                 >
                   Download <Download size={18} />
                 </Button>
@@ -207,7 +212,7 @@ const Roadmaps = () => {
           <Button
             variant="pixel"
             onClick={() => setShowAll(!showAll)}
-            className="font-game px-6 py-2 text-lg"
+            className="font-game px-6 py-2 text-lg cursor-pointer"
           >
             {showAll ? "Show Less" : "Show All Roadmaps"}
           </Button>
