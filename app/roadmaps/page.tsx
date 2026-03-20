@@ -55,17 +55,17 @@ const Roadmaps = () => {
     },
     {
       id: 7,
-      title: "Next.js Roadmap",
-      tags: ["Frontend", "Fullstack"],
-      steps: ["Routing", "SSR/SSG", "API Routes", "Deployment"],
-      url: "https://roadmap.sh/pdfs/roadmaps/nextjs.pdf",
+      title: "Angular Roadmap",
+      tags: ["Frontend", "Framework"],
+      steps: ["TypeScript Basics", "Angular CLI & Project Setup", "Components & Templates", "Data Binding & Directives", "Routing & Navigation"],
+      url: "https://roadmap.sh/pdfs/roadmaps/angular.pdf",
     },
     {
       id: 8,
-      title: "JavaScript Roadmap",
-      tags: ["Frontend", "Core"],
-      steps: ["Variables", "Functions", "DOM", "Async JS"],
-      url: "https://roadmap.sh/pdfs/roadmaps/javascript.pdf",
+      title: "SQL Roadmap",
+      tags: ["Database", "Backend"],
+      steps: ["CRUD", "Joins", "Indexes", "Normalization"],
+      url: "https://roadmap.sh/pdfs/roadmaps/sql.pdf",
     },
     {
       id: 9,
@@ -76,10 +76,17 @@ const Roadmaps = () => {
     },
     {
       id: 10,
-      title: "SQL Roadmap",
-      tags: ["Database", "Backend"],
-      steps: ["CRUD", "Joins", "Indexes", "Normalization"],
-      url: "https://roadmap.sh/pdfs/roadmaps/sql.pdf",
+      title: "JavaScript Roadmap",
+      tags: ["Frontend", "Core"],
+      steps: ["Variables", "Functions", "DOM", "Async JS"],
+      url: "https://roadmap.sh/pdfs/roadmaps/javascript.pdf",
+    },
+    {
+      id: 11,
+      title: "Next.js Roadmap",
+      tags: ["Frontend", "Fullstack"],
+      steps: ["Routing", "SSR/SSG", "API Routes", "Deployment"],
+      url: "https://roadmap.sh/pdfs/roadmaps/nextjs.pdf",
     },
   ];
 
@@ -158,7 +165,7 @@ const Roadmaps = () => {
                   {roadmaps.tags.map((tag, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 text-xs sm:text-sm font-game bg-yellow-400/20 text-black rounded-full border border-yellow-400/40"
+                      className="px-3 py-1 text-xs sm:text-sm font-game bg-yellow-400/20 rounded-full border border-yellow-400/40"
                     >
                       {tag}
                     </span>

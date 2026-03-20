@@ -47,7 +47,7 @@ const CodeEditorChildren = ({
         onClick={onCompleteExercise}
         disabled={localCompleted}
       >
-        {localCompleted ? "Already Completed !" : "Mark as Completed"}
+        {localCompleted ? "Completed !" : "Mark as Completed"}
       </Button>
     </div>
   );
@@ -55,7 +55,7 @@ const CodeEditorChildren = ({
 
 function CodeEditor({ courseExerciseData }: Props) {
   const { exerciseslug } = useParams();
-  const router = useRouter();
+  // const router = useRouter();
 
   const exerciseIndex = courseExerciseData?.exercises?.findIndex(
     (item) => item.slug == exerciseslug
@@ -93,7 +93,7 @@ function CodeEditor({ courseExerciseData }: Props) {
     });
 
     toast.success("Exercise Completed!");
-    router.refresh();
+    // router.refresh();
   };
 
   return (
