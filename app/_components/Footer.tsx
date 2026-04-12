@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Instagram, Unplug } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Unplug } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -45,12 +45,12 @@ export default function Footer() {
             <ul className="mt-4 space-y-3">
               <li>
                 <Link
-                  href="https://discord.com/"
+                  href="https://linkedin.com/"
                   target="_blank"
                   className="flex items-center justify-center sm:justify-start gap-2 hover:text-yellow-300 transition"
                 >
-                  <Unplug className="h-4 w-4" />
-                  Discord
+                  <Linkedin className="h-4 w-4" />
+                  LinkedIn
                 </Link>
               </li>
 

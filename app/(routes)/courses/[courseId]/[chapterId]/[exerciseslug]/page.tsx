@@ -81,14 +81,14 @@ function Playground() {
 
   const GetExerciseDetail = () => {
     const exerciseInfo = courseExerciseData?.exercises?.find(
-      (item) => item.slug == exerciseslug
+      (item) => item.slug == exerciseslug,
     );
     setExerciseInfo(exerciseInfo);
   };
 
   const GetPrevNextButtonRoute = () => {
     const currentExerciseIndex = courseExerciseData?.exercises?.findIndex(
-      (item) => item.slug === exerciseslug
+      (item) => item.slug === exerciseslug,
     );
 
     if (currentExerciseIndex === undefined || currentExerciseIndex === -1)
@@ -100,17 +100,20 @@ function Playground() {
     const PrevExercise =
       courseExerciseData?.exercises[currentExerciseIndex - 1]?.slug;
 
+    // NEXT
     setNextButtonRoute(
       NextExercise
         ? `/courses/${courseId}/${chapterId}/${NextExercise}`
-        : undefined
+        : undefined,
     );
 
-    setPrevButtonRoute(
-      PrevExercise
-        ? `/courses/${courseId}/${chapterId}/${PrevExercise}`
-        : undefined
-    );
+    // PREVIOUS
+    if (currentExerciseIndex === 0) {
+      // FIRST EXERCISE
+      setPrevButtonRoute(`/courses/${courseId}`);
+    } else {
+      setPrevButtonRoute(`/courses/${courseId}/${chapterId}/${PrevExercise}`);
+    }
   };
 
   return (
@@ -142,16 +145,14 @@ function Playground() {
       </Split>
 
       {/* Bottom Bar */}
-      <div className="font-game fixed bottom-0 w-full bg-zinc-900 flex py-2 px-6 justify-between items-center">
-        <Link href={`/courses/${courseId}`}>
+      <div className="font-game fixed bottom-0 w-full bg-zinc-900 flex py-2 px-6 justify-between items-center z-50">
+        <Link href={prevButtonRoute ?? `/courses/${courseId}`}>
           <Button variant={"pixel"} className="text-xl cursor-pointer">
-            Back to Course
-          </Button>
-        </Link>
-
-        <Link href={prevButtonRoute ?? "/courses/" + courseId}>
-          <Button variant={"pixel"} className="text-xl cursor-pointer">
-            Previous
+            {courseExerciseData?.exercises?.findIndex(
+              (item) => item.slug === exerciseslug,
+            ) === 0
+              ? "Back to Course"
+              : "Previous"}
           </Button>
         </Link>
 
@@ -159,7 +160,10 @@ function Playground() {
           <Image src="/star.png" alt="star" width={40} height={40} />
           <h2 className="text-2xl">
             You can Earn{" "}
-            <span className="text-4xl">{exerciseInfo?.xp ?? courseExerciseData?.exerciseData?.xp ?? 0}</span> XP
+            <span className="text-4xl">
+              {exerciseInfo?.xp ?? courseExerciseData?.exerciseData?.xp ?? 0}
+            </span>{" "}
+            XP
           </h2>
         </div>
 
