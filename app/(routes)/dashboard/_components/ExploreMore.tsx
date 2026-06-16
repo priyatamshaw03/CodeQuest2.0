@@ -12,24 +12,24 @@ const ExplorMoreOptions = [
   },
   {
     id: 2,
+    title: "Explore Roadmaps",
+    desc: "Discover curated roadmaps to guide your learning journey.",
+    icon: "/start-up.png",
+    url: "/roadmaps",
+  },
+  {
+    id: 3,
     title: "Video Courses",
     desc: "Learn with structured video lessons taught step-by-step.",
     icon: "/game.png",
     url: "/video-courses",
   },
   {
-    id: 3,
+    id: 4,
     title: "Community Project",
     desc: "Build real-world apps by collaborating with the community.",
     icon: "/growth.png",
     url: "/community-projects",
-  },
-  {
-    id: 4,
-    title: "Explore Apps",
-    desc: "Explore prebuilt apps you can try and rebuild.",
-    icon: "/start-up.png",
-    url: "/explore-apps",
   },
 ];
 
