@@ -12,17 +12,17 @@ const ExplorMoreOptions = [
   },
   {
     id: 2,
-    title: "Explore Roadmaps",
-    desc: "Discover curated roadmaps to guide your learning journey.",
-    icon: "/start-up.png",
-    url: "/roadmaps",
-  },
-  {
-    id: 3,
     title: "Video Courses",
     desc: "Learn with structured video lessons taught step-by-step.",
     icon: "/game.png",
     url: "/video-courses",
+  },
+  {
+    id: 3,
+    title: "Explore Roadmaps",
+    desc: "Discover curated roadmaps to guide your learning journey.",
+    icon: "/start-up.png",
+    url: "/roadmaps",
   },
   {
     id: 4,
@@ -36,7 +36,7 @@ const ExplorMoreOptions = [
 function ExploreMore() {
   return (
     <div className='mt-8 '>
-      <h2 className="text-3xl mb-2 font-game">Coming Soon...</h2>
+      <h2 className="text-3xl mb-2 font-game">Explore Learning Paths</h2>
       <div className='grid grid-cols-2 gap-5'>
         {ExplorMoreOptions.map((option) => (
         <Link key={option.id} href={option.url}>

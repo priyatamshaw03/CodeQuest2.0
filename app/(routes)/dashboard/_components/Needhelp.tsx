@@ -8,9 +8,9 @@ function Needhelp() {
     <div className='flex items-center flex-col p-5 border-4 rounded-2xl mt-6'>
       
       <h2 className='text-3xl font-game'>Need Help ?</h2>
-      <p className='font-game text-gray-500 text-xl text-center'>Raise a query or contact us</p>
-      <Link href={'/contact-us'}>
-        <Button className='font-game cursor-pointer text-lg' variant={'pixel'}>Contact us</Button>
+      <p className='font-game text-gray-500 text-xl text-center'>Connect with fellow students, discuss coding topics, clear doubts and grow together.</p>
+      <Link href={'https://web.whatsapp.com'}>
+        <Button className='font-game cursor-pointer text-lg' variant={'pixel'}>Join community</Button>
       </Link>
     
     </div>
