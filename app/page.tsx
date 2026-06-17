@@ -5,7 +5,6 @@ import Hero from "./_components/Hero";
 import HomeCourses from "./_components/HomeCourses";
 import Footer from "./_components/Footer";
 import Featured from "./_components/Featured";
-import HowItWorks from "./_components/HowItWorks";
 import CTASection from "./_components/CTASection";
 
 export default function Home() {
