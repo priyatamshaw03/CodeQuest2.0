@@ -40,6 +40,8 @@ export type ExercisesContent = {
   hintxp: string;
   starterCode: any;
   task: string;
+  regex: string;
+  output: string;
 };
 
 function Playground() {

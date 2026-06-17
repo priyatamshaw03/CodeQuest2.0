@@ -81,7 +81,7 @@ const CodeEditorChildren = ({
           ? "Completed !"
           : isCorrect
           ? "Mark as Completed"
-          : "Solve First"}
+          : null}
       </Button>
     </div>
   );
@@ -159,6 +159,7 @@ function CodeEditor({ courseExerciseData }: Props) {
               <CodeEditorChildren
                 onCompleteExercise={onCompleteExercise}
                 localCompleted={localCompleted}
+                regexPattern={courseExerciseData?.exerciseData?.exercisesContent?.regex}
               />
             </div>
 
