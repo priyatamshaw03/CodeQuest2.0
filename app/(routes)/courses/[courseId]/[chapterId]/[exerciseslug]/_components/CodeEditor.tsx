@@ -47,7 +47,7 @@ const CodeEditorChildren = ({
         toast.success("Correct Solution!");
       } else {
         setIsCorrect(false);
-        toast.error("Solution not correct yet");
+        toast.error("Solution not correct!");
       }
     } catch (error) {
       console.error(error);
@@ -79,9 +79,8 @@ const CodeEditorChildren = ({
       >
         {localCompleted
           ? "Completed !"
-          : isCorrect
-          ? "Mark as Completed"
-          : null}
+          : "Mark as Completed"
+          }
       </Button>
     </div>
   );
