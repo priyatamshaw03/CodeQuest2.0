@@ -24,8 +24,36 @@ type Props = {
 const CodeEditorChildren = ({
   onCompleteExercise,
   localCompleted,
+  regexPattern,
 }: any) => {
   const { sandpack } = useSandpack();
+  const [isCorrect, setIsCorrect] = useState(false);
+
+  const validateSolution = () => {
+    try {
+      sandpack.runSandpack();
+
+      const htmlCode = sandpack.files["/index.html"]?.code || "";
+
+      if (!regexPattern) {
+        toast.error("Validation rule missing");
+        return;
+      }
+
+      const regex = new RegExp(regexPattern, "i");
+
+      if (regex.test(htmlCode)) {
+        setIsCorrect(true);
+        toast.success("Correct Solution!");
+      } else {
+        setIsCorrect(false);
+        toast.error("Solution not correct yet");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Validation failed");
+    }
+  };
 
   return (
     <div className="font-game absolute bottom-40 flex gap-5 right-5">
@@ -33,21 +61,27 @@ const CodeEditorChildren = ({
         variant={"pixel"}
         size={"lg"}
         className="text-xl cursor-pointer"
-        onClick={() => sandpack.runSandpack()}
+        onClick={validateSolution}
       >
         Run Code
       </Button>
 
       <Button
         variant={"pixel"}
-        className={`bg-[#a3e534] text-xl cursor-pointer ${
-          localCompleted ? "opacity-50 cursor-not-allowed" : ""
+        className={`bg-[#a3e534] text-xl ${
+          !isCorrect || localCompleted
+            ? "opacity-50 cursor-not-allowed"
+            : ""
         }`}
         size={"lg"}
         onClick={onCompleteExercise}
-        disabled={localCompleted}
+        disabled={!isCorrect || localCompleted}
       >
-        {localCompleted ? "Completed !" : "Mark as Completed"}
+        {localCompleted
+          ? "Completed !"
+          : isCorrect
+          ? "Mark as Completed"
+          : "Solve First"}
       </Button>
     </div>
   );

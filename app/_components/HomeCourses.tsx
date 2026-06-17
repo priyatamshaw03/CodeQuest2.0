@@ -23,9 +23,15 @@ export default function HomeCourses() {
   return (
     <section className="mt-20 font-game text-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl">
-          Some Popular Courses
-        </h2>
+        <div className="text-center mb-14">
+          <h2 className="text-5xl font-game mb-4">
+            Some Popular Courses
+          </h2>
+
+          <p className="text-gray-400 font-game max-w-2xl mx-auto text-xl">
+            Explore the courses thousands of learners use to start and grow their coding journey.
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mt-10">
           {courses.map((course) => (
