@@ -59,7 +59,7 @@ export default function SignInPage() {
               <Clerk.Input
                 type="email"
                 required
-                className="w-full px-3 py-2.5 border-2 border-black rounded-md
+                className="w-full px-3 py-2.5 border-2 text-black border-black rounded-md
                 focus:outline-none focus:ring-2 focus:ring-yellow-400
                 transition-all text-sm"
               />
@@ -73,7 +73,7 @@ export default function SignInPage() {
               <Clerk.Input
                 type="password"
                 required
-                className="w-full px-3 py-2.5 border-2 border-black rounded-md
+                className="w-full px-3 py-2.5 border-2 text-black border-black rounded-md
                 focus:outline-none focus:ring-2 focus:ring-yellow-400
                 transition-all text-sm"
               />
